@@ -1,0 +1,20 @@
+sudo adduser username 
+sudo usermod -aG sudo username
+sudo su username
+ssh-keygen
+
+sudo apt update
+sudo apt install openssh-server
+sudo apt install ansible 
+
+cat /etc/resolv.conf
+ssh-copy-id username@ip
+
+sudo mkdir -p /etc/ansible
+sudo nano /etc/ansible/hosts
+
+[local]
+localhost ansible_connection=local
+
+ansible-inventory --list -y
+sudo ansible all -m ping
